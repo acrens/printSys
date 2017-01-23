@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 14px;
+    width: 100%;
+}
+
+/*size*/
+.a4-v {
+    width: 400px;
+    height: 700px;
+}
+.a5-h {
+    width: 400px;
+    height: 250px;
+}
+/*size*/
+
+/*头部样式*/
+header {
+    height: 42px;
+    background: #222;
+    color: #9d9d9d;
+    line-height: 42px;
+    padding: 0 5%;
+    margin-bottom: 20px;
+}
+header span {
+    float: left;
+    display: block
+}
+header ul {
+    float: left;
+}
+header ul li {
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+}
+/*头部样式*/
+
+/*左侧导航*/
+nav {
+    width: 30%;
+    float: left;
+    min-height: 100px;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+/*左侧导航*/
+
+/*主体*/
+.content {
+    width: 69%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 5%;
+    border-left: 1px solid #eee;
+}
+.content-body {
+    border: 1px solid #000;
+}
+/*主体*/
+
+/*页脚样式*/
+footer {
+    clear: both;
+    height: 50px;
+    text-align: center;
+    padding: 0 5%;
+    padding-top: 20px;
+}
+footer hr{
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+/*页脚样式*/
