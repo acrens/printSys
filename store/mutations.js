@@ -13,35 +13,45 @@ export const mutations = {
         });
     },
     /**
-     * 添加标题
+     * 添加组件
      */
-    addTitle (state, {titlelist}) {
-        if (titlelist.tag) {
-            state.pageList.Title = titlelist.tag;
+    addItem (state, item) {
+        let tag = '';
+        let type = event.target.getAttribute('data-type');
+        let typeList= state.pageList[type];
+        let flag;
+
+        for (let i in item) {
+            tag = item[i];
         }
+
+        if (type === 'Title') {
+            typeList.pop();
+        }
+
+        typeList.push(tag);
     },
     /**
-     * 添加头部信息
+     * 删除组件
      */
-    addHead (state, {headlist}) {
-        if (headlist.tag) {
-            state.pageList.Head.push(headlist.tag);
+    removeItem (state, item) {
+        let tag = '';
+        let type = event.target.getAttribute('data-type');
+        let typeList= state.pageList[type];
+        let flag;
+
+        for (let i in item) {
+            tag = item[i];
         }
-    },
-    /**
-     * 添加section
-     */
-    addSection (state, {sectionlist}) {
-        if (sectionlist.tag) {
-            state.pageList.Section.push(sectionlist.tag);
+
+        for (let i = 0; i < typeList.length; i++) {
+
+            if (typeList[i].tag === tag.tag) {
+                flag = i;
+                break;
+            }
         }
-    },
-    /**
-     * 添加foot
-     */
-    addFoot (state, {footlist}) {
-        if (footlist.tag) {
-            state.pageList.Foot.push(footlist.tag);
-        }
+
+        state.pageList[type].splice(flag, 1);
     }
 }

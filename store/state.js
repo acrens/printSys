@@ -13,7 +13,7 @@ export const state = {
     ],
 
     pageList: {
-        Title: '',
+        Title: [],
         Head: [],
         Section: [],
         Foot: []

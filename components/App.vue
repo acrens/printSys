@@ -1,4 +1,5 @@
 <style src="../style/public.css"></style>
+<style src="../style/print.css"></style>
 
 <template>
     <section>
@@ -16,25 +17,25 @@
             <ul>
                 <li>标题</li>
                 <li v-for="titlelist in titleLists" :titlelist="titlelist">
-                    <a href="javascript:void(0);" :data-id="titlelist.tag" @click="addTitle({titlelist})">{{ titlelist.name }}</a>
+                    <a href="javascript:void(0);" :data-id="titlelist.tag" data-type="Title" @click="addItem({titlelist})">{{ titlelist.name }}</a>
                 </li>
             </ul>
             <ul>
                 <li>头部信息</li>
                 <li v-for="headlist in headLists" :headlist="headlist">
-                    <a href="javascript:void(0);" :data-id="headlist.tag" @click="addHead({headlist})">{{ headlist.name }}</a>
+                    <a href="javascript:void(0);" :data-id="headlist.tag" data-type="Head" @click="addItem({headlist})">{{ headlist.name }}</a>
                 </li>
             </ul>
             <ul>
                 <li>主体信息</li>
                 <li v-for="sectionlist in sectionLists" :sectionlist="sectionlist">
-                    <a href="javascript:void(0);" :data-id="sectionlist.tag" @click="addSection({sectionlist})">{{ sectionlist.name }}</a>
+                    <a href="javascript:void(0);" :data-id="sectionlist.tag" data-type="Section" @click="addItem({sectionlist})">{{ sectionlist.name }}</a>
                 </li>
             </ul>
             <ul>
                 <li>页脚信息</li>
                 <li v-for="footlist in footLists" :footlist="footlist">
-                    <a href="javascript:void(0);" :data-id="footlist.tag" @click="addFoot({footlist})">{{ footlist.name }}</a>
+                    <a href="javascript:void(0);" :data-id="footlist.tag" data-type="Foot" @click="addItem({footlist})">{{ footlist.name }}</a>
                 </li>
             </ul>
         </nav>
@@ -45,21 +46,51 @@
             <div class="content-body" :class="sizeClass">
                 <!--标题栏-->
                 <div class="content-title">
-                    <component :is="titleTag" keep-alive></component>
+                    <component v-for="titletag in titleTags" :is="titletag.tag" keep-alive></component>
                 </div>
                 <!--head信息栏-->
                 <div class="content-head">
-                    <component v-for="headtag in headTags" :is="headtag" keep-alive></component>
+                    <component v-for="headtag in headTags" :is="headtag.tag" keep-alive></component>
                 </div>
                 <div class="content-section">
-                    <component v-for="sectiontag in sectionTags" :is="sectiontag" keep-alive></component>
+                    <component v-for="sectiontag in sectionTags" :is="sectiontag.tag" keep-alive></component>
                 </div>
                 <div class="content-foot">
-                    <component v-for="foottag in footTags" :is="foottag" keep-alive></component>
+                    <component v-for="foottag in footTags" :is="foottag.tag" keep-alive></component>
                 </div>
             </div>
         </section>
         <!--内容主题-->
+
+        <!--列表-->
+        <section class="side">
+            <h3>
+                已使用的组件
+            </h3>
+            <ul>
+                <li>标题</li>
+                <li class="side-item" v-for="titletag in titleTags">
+                    {{ titletag.name }}
+                    <button data-type="Title" @click="removeItem({titletag})">X</button>
+                </li>
+                <li>头部信息</li>
+                <li class="side-item" v-for="headtag in headTags">
+                    {{ headtag.name }}
+                    <button data-type="Head" @click="removeItem({headtag})">X</button>
+                </li>
+                <li>主体信息</li>
+                <li class="side-item" v-for="sectiontag in sectionTags">
+                    {{ sectiontag.name }}
+                    <button data-type="Section" @click="removeItem({sectiontag})">X</button>
+                </li>
+                <li>页脚信息</li>
+                <li class="side-item" v-for="foottag in footTags">
+                    {{ foottag.name }}
+                    <button data-type="Foot" @click="removeItem({foottag})">X</button>
+                </li>
+            </ul>
+        </section>
+        <!--列表-->
 
         <!--页脚-->
         <footer>
@@ -98,32 +129,42 @@
         },
         // 页面所用计算属性
         computed: {
+            /**
+             * 获取state
+             * @returns {*|S}
+             */
+            stateList () {
+                return this.$store.state;
+            },
+            pageList () {
+                return this.stateList.pageList;
+            },
             sizeLists () {
-                return this.$store.state.sizeList;
+                return this.stateList.sizeList;
             },
             titleLists () {
-                return this.$store.state.titleList;
+                return this.stateList.titleList;
             },
-            titleTag () {
-                return this.$store.state.pageList.Title;
+            titleTags () {
+                return this.pageList.Title;
             },
             headLists () {
-                return this.$store.state.headList;
+                return this.stateList.headList;
             },
             headTags () {
-                return this.$store.state.pageList.Head;
+                return this.pageList.Head;
             },
             sectionLists () {
-                return this.$store.state.sectionList;
+                return this.stateList.sectionList;
             },
             sectionTags () {
-                return this.$store.state.pageList.Section;
+                return this.pageList.Section;
             },
             footLists () {
-                return this.$store.state.footList;
+                return this.stateList.footList;
             },
             footTags () {
-                return this.$store.state.pageList.Foot;
+                return this.pageList.Foot;
             },
             sizeClass () {
                 return this.sizeLists.filter(item => item.status)[0].id;
@@ -132,10 +173,8 @@
         // 方法
         methods: {
             ...mapMutations([
-                'addTitle',
-                'addHead',
-                'addSection',
-                'addFoot'
+                'addItem',
+                'removeItem'
             ])
         }
     }
