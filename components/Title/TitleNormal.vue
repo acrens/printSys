@@ -1,6 +1,6 @@
 <template>
     <div>
-        哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈
+    	<h1 class="title__h1--default">丁香诊所 门诊处方</h1>
     </div>
 </template>
 

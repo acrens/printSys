@@ -45,17 +45,17 @@
         <section class="content">
             <div class="content-body" :class="sizeClass">
                 <!--标题栏-->
-                <div class="content-title">
-                    <component v-for="titletag in titleTags" :is="titletag.tag" keep-alive></component>
+                <div class="content-title parent--clearfix">
+                    <component v-for="titletag in titleTags" :is="titletag.tag" :class="titletag.class" keep-alive></component>
                 </div>
                 <!--head信息栏-->
-                <div class="content-head">
-                    <component v-for="headtag in headTags" :is="headtag.tag" keep-alive></component>
+                <div class="content-head parent--clearfix">
+                    <component v-for="headtag in headTags" :is="headtag.tag" :class="headtag.class" keep-alive></component>
                 </div>
-                <div class="content-section">
+                <div class="content-section parent--clearfix">
                     <component v-for="sectiontag in sectionTags" :is="sectiontag.tag" keep-alive></component>
                 </div>
-                <div class="content-foot">
+                <div class="content-foot parent--clearfix">
                     <component v-for="foottag in footTags" :is="foottag.tag" keep-alive></component>
                 </div>
             </div>
@@ -106,6 +106,10 @@
     import HeaderChoose from './Header/HeaderChoose.vue';
     import TitleNormal from './Title/TitleNormal.vue'
     import TitleWarp from './Title/TitleWarp.vue'
+    import Head25Row from './Head/Head25Row.vue'
+    import Head50Row from './Head/Head50Row.vue'
+    import Head75Row from './Head/Head75Row.vue'
+    import Head100Row from './Head/Head100Row.vue'
     import HeadFourRow from './Head/HeadFourRow.vue'
     import HeadThreeRow from './Head/HeadThreeRow.vue'
     import SectionNormal from './Section/SectionNormal.vue'
@@ -120,6 +124,10 @@
             TitleNormal,
             TitleWarp,
             // head组件
+            Head25Row,
+            Head50Row,
+            Head75Row,
+            Head100Row,
             HeadFourRow,
             HeadThreeRow,
             // section组件
@@ -167,7 +175,7 @@
                 return this.pageList.Foot;
             },
             sizeClass () {
-                return this.sizeLists.filter(item => item.status)[0].id;
+                return this.sizeLists.filter(item => item.status)[0].class;
             }
         },
         // 方法
