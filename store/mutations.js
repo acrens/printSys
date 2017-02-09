@@ -34,24 +34,13 @@ export const mutations = {
     /**
      * 删除组件
      */
-    removeItem (state, item) {
-        let tag = '';
+    removeItem (state) {
         let type = event.target.getAttribute('data-type');
+        let index = event.target.getAttribute('data-index');
         let typeList= state.pageList[type];
-        let flag;
 
-        for (let i in item) {
-            tag = item[i];
+        if (index && index >= 0) {
+            typeList.splice(index, 1);
         }
-
-        for (let i = 0; i < typeList.length; i++) {
-
-            if (typeList[i].tag === tag.tag) {
-                flag = i;
-                break;
-            }
-        }
-
-        state.pageList[type].splice(flag, 1);
     }
-}
+};

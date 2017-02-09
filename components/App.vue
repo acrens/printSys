@@ -69,24 +69,24 @@
             </h3>
             <ul>
                 <li>标题</li>
-                <li class="side-item" v-for="titletag in titleTags">
+                <li class="side-item" v-for="(titletag, index) in titleTags">
                     {{ titletag.name }}
-                    <button data-type="Title" @click="removeItem({titletag})">X</button>
+                    <button data-type="Title" :data-index="index" @click="removeItem()">X</button>
                 </li>
                 <li>头部信息</li>
-                <li class="side-item" v-for="headtag in headTags">
+                <li class="side-item" v-for="(headtag, index) in headTags">
                     {{ headtag.name }}
-                    <button data-type="Head" @click="removeItem({headtag})">X</button>
+                    <button data-type="Head" :data-index="index" @click="removeItem()">X</button>
                 </li>
                 <li>主体信息</li>
-                <li class="side-item" v-for="sectiontag in sectionTags">
+                <li class="side-item" v-for="(sectiontag, index) in sectionTags">
                     {{ sectiontag.name }}
-                    <button data-type="Section" @click="removeItem({sectiontag})">X</button>
+                    <button data-type="Section" :data-index="index" @click="removeItem()">X</button>
                 </li>
                 <li>页脚信息</li>
-                <li class="side-item" v-for="foottag in footTags">
+                <li class="side-item" v-for="(foottag, index) in footTags">
                     {{ foottag.name }}
-                    <button data-type="Foot" @click="removeItem({foottag})">X</button>
+                    <button data-type="Foot" :data-index="index" @click="removeItem()">X</button>
                 </li>
             </ul>
         </section>
