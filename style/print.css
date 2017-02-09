@@ -1,0 +1,136 @@
+/* 采用 BEM 命名方式 */
+
+@charset 'UTF-8';
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", "WenQuanYi Micro Hei", Arial, sans-serif!important;
+    color: #000;
+    -webkit-print-color-adjust: exact;
+    background: #fff;
+    font-size: 10.5pt;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.print--a4-v {
+    width: 21cm;
+    min-height: 29.4cm;
+    padding: .8cm 1.48cm 2cm;
+    margin: 0 auto;
+}
+
+.print--a5-h {
+    width: 21cm;
+    min-height: 14.7cm;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.title--default {
+    height: 2cm;
+}
+
+.title__h1--default {
+    float: none;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0;
+    font-size: 21pt;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+
+/* ----------- common css ----------- */
+
+.parent--clearfix,
+.p-row {
+    float: left;
+    width: 100%;
+}
+
+.p-col25 {
+    width: 25%;
+    float: left;
+}
+
+.p-col50 {
+    width: 50%;
+    float: left;
+}
+
+.p-col75 {
+    width: 75%;
+    float: left;
+}
+
+.p-col100 {
+    width: 100%;
+    float: left;
+}
+
+.p-group {
+    margin-bottom: 0.5cm;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    margin-right: 7px;
+}
+
+.p-label {
+    width: 1.5cm;
+    display: inline-block;
+}
+
+.p-label span {
+    position: absolute;
+    display: inline-block;
+    background-color: #fff;
+    top: 1px;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 23px;
+}
+
+.p-item {
+    display: inline-block;
+    padding-top: 1px;
+    position: relative;
+    line-height: 22px;
+}
+
+.p-item--overflow {
+    position: absolute;
+    width: 2.8cm;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mr0 {
+    margin-right: 0!important
+}
+
+.w7d1--cm {
+    width: 7.1cm!important;
+}
+
+.w11d6--cm {
+    width: 11.6cm!important;
+}
+
+.w16d2--cm {
+    width: 16.2cm!important;
+}
+
+
+/* ----------- common css ----------- */
