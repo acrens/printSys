@@ -67,6 +67,7 @@ nav {
 .side {
     width: 15%;
     float: left;
+    margin-left: 25px;
 }
 .side-item {
     list-style: none;
