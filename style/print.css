@@ -120,16 +120,32 @@ body {
     margin-right: 0!important
 }
 
-.w7d1--cm {
+.print--a4-v .w7d1--cm {
     width: 7.1cm!important;
 }
 
-.w11d6--cm {
+.print--a4-v .w11d6--cm {
     width: 11.6cm!important;
 }
 
-.w16d2--cm {
+.print--a4-v .w16d2--cm {
     width: 16.2cm!important;
+}
+
+.print--a5-h .w3d5--cm {
+	width: 3.5cm!important;
+}
+
+.print--a5-h .w7d1--cm {
+    width: 8.6cm!important;
+}
+
+.print--a5-h .w11d6--cm {
+    width: 13.9cm!important;
+}
+
+.print--a5-h .w16d2--cm {
+    width: 19.1cm!important;
 }
 
 
