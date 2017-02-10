@@ -91,3 +91,36 @@ footer hr{
     border-top: 1px solid #eee;
 }
 /*页脚样式*/
+
+/*正常样式*/
+#print {
+    display: none;
+}
+#no-print {
+    display: block;
+}
+
+/*打印样式*/
+@media print {
+    #print {
+        display: block;
+    }
+    #no-print {
+        display: none;
+    }
+}
+
+/*公共样式*/
+.fr {
+    float: right;
+}
+.show-print__btn {
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: 9px;
+    cursor: pointer;
+}
+.mgr5 {
+    margin-right: 5px;
+}
