@@ -42,5 +42,20 @@ export const mutations = {
         if (index && index >= 0) {
             typeList.splice(index, 1);
         }
+    },
+    /**
+     * 清空页面内容
+     */
+    clearPage (state) {
+
+        var confirm = window.confirm('确定要清空所有内容？');
+
+        if (confirm) {
+            let pageList = state.pageList;
+
+            for (let i in pageList) {
+                pageList[i] = [];
+            }
+        }
     }
 };
